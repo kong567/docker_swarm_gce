@@ -22,7 +22,6 @@ services:
         # 只允許在 manager 節點部署此服務（可改為 node label）
         # constraints: [node.role == manager]
         constraints: [node.labels.mysql == true]
-      resources:
     networks:
       - my_swarm_network            # 加入定義好的 overlay 網路
 
