@@ -4,6 +4,7 @@ services:
   api:  # 定義一個服務，名稱為 api
     image: "${DOCKER_IMAGE_FULL}"  # 使用的映像檔名稱與標籤（版本）
     hostname: "api.{{.Task.Slot}}"  # 設定 hostname = api
+    user: root
     command: pipenv run uvicorn src.api.main:app --reload --host 0.0.0.0 --port 8888 --ssl-keyfile /certs/privkey.pem --ssl-certfile /certs/fullchain.pem
     #        pipenv run uvicorn src.api.main:app --reload --host 0.0.0.0 --port 8888
     ports: 
